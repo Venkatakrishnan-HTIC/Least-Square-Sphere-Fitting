@@ -137,8 +137,8 @@ int main()
    MatrixXd del = A.rowwise() - center;
    d = del.rowwise().norm();
    MatrixXd diff = d.array() - r;
-   MatrixXd result = diff.colwise().squaredNorm()/del.rows();
-   double rms = result(0);
+   MatrixXd result = diff.colwise().squaredNorm();
+   double rms = result(0)/del.rows();
    rms = sqrt(rms);
 
    cout<<"The cost of fitting is : "<< rms<<endl;
